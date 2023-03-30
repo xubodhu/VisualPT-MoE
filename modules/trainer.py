@@ -500,11 +500,7 @@ class RETrainer(BaseTrainer):
                 self.logger.info("%s\n", sk_result)
                 result = eval_result(true_labels, pred_labels, self.re_dict, self.logger)
                 acc, micro_f1 = round(result['acc'] * 100, 4), round(result['micro_f1'] * 100, 4)
-                if self.writer:
-                    self.writer.add_scalar(tag='test_acc', scalar_value=acc)  # tensorbordx
-                    self.writer.add_scalar(tag='test_f1', scalar_value=micro_f1)  # tensorbordx
-                    self.writer.add_scalar(tag='test_loss',
-                                           scalar_value=total_loss / len(self.test_data))  # tensorbordx
+            
                 total_loss = 0
                 self.logger.info("Test f1 score: {}, acc: {}.".format(micro_f1, acc))
 
