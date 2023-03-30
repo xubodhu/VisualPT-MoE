@@ -94,7 +94,7 @@ if __name__ == '__main__':
                         type=str,
                         default='../pretrained_models/bert-base-uncased')
     parser.add_argument('--num_epochs',
-                        default=5,
+                        default=20,
                         type=int,
                         help="num training epochs")
     parser.add_argument('--device',
