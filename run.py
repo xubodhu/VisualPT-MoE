@@ -76,7 +76,7 @@ if __name__ == '__main__':
                         default='./ner_img/object_tags_2017.pt')
     parser.add_argument('--max_tags',
                         type=int,
-                        default=3)
+                        default=20)
     parser.add_argument('--img_caption',
                         type=str,
                         default='./ner_img/caption_2017.pt')
