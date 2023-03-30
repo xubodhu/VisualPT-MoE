@@ -484,7 +484,7 @@ class RETrainer(BaseTrainer):
                 for batch in self.test_data:
                     batch = (tup.to(self.args.device) if isinstance(tup, torch.Tensor) else tup for tup in
                              batch)  # to cpu/cuda device
-                    loss, logits, labels = self._step(batch)  # logits: batch, 3
+                    logits, loss, labels = self._step(batch)  # logits: batch, 3
                     total_loss += loss.detach().cpu().item()
 
                     preds = logits.argmax(-1)
