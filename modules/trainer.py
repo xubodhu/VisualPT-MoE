@@ -473,11 +473,9 @@ class RETrainer(BaseTrainer):
         self.logger.info("\n***** Running testing *****")
         self.logger.info("  Num instance = %d", len(self.test_data) * self.args.batch_size)
         self.logger.info("  Batch size = %d", self.args.batch_size)
-
-        if self.args.load_path is not None:  # load model from load_path
-            self.logger.info("Loading model from {}".format("./weights/best_model_mre.pth"))
-            self.model.load_state_dict(torch.load("./weights/best_model_mre.pth"))
-            self.logger.info("Load model successful!")
+        self.logger.info("Loading model from {}".format("./weights/best_model_mre.pth"))
+        self.model.load_state_dict(torch.load("./weights/best_model_mre.pth"))
+        self.logger.info("Load model successful!")
         true_labels, pred_labels = [], []
         with torch.no_grad():
             with tqdm(total=len(self.test_data), leave=False, dynamic_ncols=True) as pbar:
@@ -486,7 +484,7 @@ class RETrainer(BaseTrainer):
                 for batch in self.test_data:
                     batch = (tup.to(self.args.device) if isinstance(tup, torch.Tensor) else tup for tup in
                              batch)  # to cpu/cuda device
-                    (loss, logits), labels = self._step(batch, mode="dev")  # logits: batch, 3
+                    loss, logits, labels = self._step(batch)  # logits: batch, 3
                     total_loss += loss.detach().cpu().item()
 
                     preds = logits.argmax(-1)
