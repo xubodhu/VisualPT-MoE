@@ -1,0 +1,5 @@
+torch==1.7.1
+torchvision==0.8.2
+transformers==4.11.3
+tokenizers==0.10.3
+scikit-learn==1.0.2
