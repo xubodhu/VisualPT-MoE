@@ -18,7 +18,7 @@ pip install -r requirements.txt # Install the required libraries
 # Data Download
 
 We use Twitter2015 and Twitter2017 on the MNER task and MNRE on the MRE task provided by [HVPNet](https://github.com/zjunlp/HVPNeT).
-After you download the data, you should place it in the 'data' folder.
+After you download the data, you should place it in the 'data'.
 
 # Required pre-trained models
 
@@ -26,7 +26,7 @@ In our code, we use '../pretrained_models/bert-base-uncased' (see line-95 in run
 
 # Extraction of image features
 
-We uploaded the extracted image features to Baidu Cloud Disk, where you can download them and put the downloaded features into 'img_ner' folder.
+We uploaded the extracted image features to [Baidu Cloud Disk](https://pan.baidu.com/s/1Um4aRtrU6B4Ejb-s1-_r4A?pwd=ckwh), where you can download them and put the downloaded features into 'img_ner'.
 We provide code for extracting image features (utils/save_\*.py) to facilitate your use of different models to extract image features.
 
 # Structure of Files
